@@ -1,0 +1,16 @@
+[20:47:55] 开始监控 chrome.exe，间隔 2.0 秒，预计采集 30 秒…
+    0.0s  样本   1  CPU   —    私有工作集  1189.5 MB  线程 338      2.0s  样本   2  CPU   0.0%  私有工作集  1189.5 MB  线程 338      4.0s  样本   3  CPU   0.0%  私有工作集  1189.5 MB  线程 338      6.0s  样本   4  CPU   0.0%  私有工作集  1189.5 MB  线程 338      8.0s  样本   5  CPU   0.0%  私有工作集  1189.5 MB  线程 338     10.0s  样本   6  CPU   0.0%  私有工作集  1189.5 MB  线程 338     12.0s  样本   7  CPU   0.0%  私有工作集  1189.5 MB  线程 338     14.0s  样本   8  CPU   0.0%  私有工作集  1189.5 MB  线程 338     16.0s  样本   9  CPU   1.5%  私有工作集  1188.9 MB  线程 338     18.0s  样本  10  CPU   0.0%  私有工作集  1189.0 MB  线程 338     20.0s  样本  11  CPU   0.0%  私有工作集  1189.0 MB  线程 338     22.0s  样本  12  CPU   0.0%  私有工作集  1189.0 MB  线程 338     24.0s  样本  13  CPU   0.0%  私有工作集  1187.4 MB  线程 338     26.0s  样本  14  CPU   0.0%  私有工作集  1187.4 MB  线程 338     28.0s  样本  15  CPU   0.0%  私有工作集  1187.4 MB  线程 338     30.0s  样本  16  CPU   0.0%  私有工作集  1187.4 MB  线程 338  
+Traceback (most recent call last):
+  File "E:\dsh-skill\win-proc-monitor\app.py", line 172, in <module>
+    sys.exit(main())
+  File "E:\dsh-skill\win-proc-monitor\app.py", line 163, in main
+    return cmd_cli(args)
+  File "E:\dsh-skill\win-proc-monitor\app.py", line 120, in cmd_cli
+    res = output.write_outputs(out_dir, samples, meta, analysis, th, sysinfo)
+  File "E:\dsh-skill\win-proc-monitor\core\output.py", line 59, in write_outputs
+    html_path, md_path = report_writer.write_reports(
+  File "E:\dsh-skill\win-proc-monitor\core\report_writer.py", line 561, in write_reports
+    write_html(html_path, samples, meta, analysis, thresholds, sysinfo, names)
+  File "E:\dsh-skill\win-proc-monitor\core\report_writer.py", line 348, in write_html
+    parts.append("<h3>CPU 占用率（%）%s</h3>"
+ValueError: unsupported format character '?' (0xff09) at index 13

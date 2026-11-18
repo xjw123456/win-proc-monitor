@@ -1,0 +1,81 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><title>原型 · Excel 数据表</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Microsoft YaHei UI","Segoe UI",sans-serif;background:#dfe7f0;display:flex;align-items:center;
+     justify-content:center;min-height:100vh;padding:20px;-webkit-font-smoothing:antialiased;color:#1f2328}
+.win{width:1440px;height:830px;background:#fff;border-radius:8px;overflow:hidden;display:flex;flex-direction:column;
+     box-shadow:0 30px 70px rgba(12,32,56,.32);border:1px solid #c9d3dd}
+.tbar{height:34px;background:#217346;color:#fff;display:flex;align-items:center;gap:12px;padding:0 12px;font-size:12px}
+.tbar .qat{display:flex;gap:10px;opacity:.9;font-size:11px}
+.tbar .grow{flex:1}
+.tbar .wbtn{width:34px;height:34px;display:flex;align-items:center;justify-content:center;font-size:11px;opacity:.9}
+.tabs{height:30px;display:flex;align-items:center;gap:3px;padding:0 10px;background:#f3f4f6;border-bottom:1px solid #dde3ea;font-size:11.5px;color:#374151}
+.tabs .t{padding:5px 11px;border-radius:4px 4px 0 0}
+.tabs .t.on{background:#fff;color:#217346;font-weight:600;border:1px solid #dde3ea;border-bottom-color:#fff}
+.ribbon{height:78px;background:#fff;border-bottom:1px solid #dde3ea;display:flex;align-items:center;gap:0;padding:0 10px}
+.rgrp{display:flex;flex-direction:column;justify-content:center;height:70px;padding:0 12px;border-right:1px solid #eef1f4;gap:5px}
+.rgrp .lbl2{font-size:9.5px;color:#9aa5b1;text-align:center}
+.rrow{display:flex;align-items:center;gap:4px}
+.rbtn{min-width:26px;height:24px;border:1px solid transparent;border-radius:3px;display:flex;align-items:center;
+      justify-content:center;font-size:11px;color:#374151;padding:0 4px}
+.rbtn.sq{background:#f3f4f6;border-color:#e5e7eb}
+.fontbox{border:1px solid #d7dde5;border-radius:3px;height:24px;padding:0 8px;font-size:11px;display:flex;align-items:center;
+         justify-content:space-between;width:150px;color:#374151}
+.fbar{height:26px;display:flex;align-items:center;gap:6px;border-bottom:1px solid #dde3ea;padding:0 8px;background:#fff}
+.namebox{width:64px;height:20px;border:1px solid #d7dde5;border-radius:2px;font-size:11px;display:flex;align-items:center;padding:0 6px}
+.fx{font-size:10px;color:#8a96a3;font-style:italic;padding:0 6px;border-left:1px solid #e5e7eb;border-right:1px solid #e5e7eb;height:16px;display:flex;align-items:center}
+.fcontent{font-size:11px;color:#374151}
+.sheet{flex:1;overflow:hidden;position:relative;padding-left:0}
+table{border-collapse:collapse;table-layout:fixed;font-size:11.5px}
+th,td{border-right:1px solid #e3e8ee;border-bottom:1px solid #e3e8ee;height:25px;padding:0 6px;overflow:hidden;
+      white-space:nowrap;text-overflow:ellipsis}
+thead th{background:#1f4e79;color:#fff;font-weight:600;font-size:11px;height:26px;text-align:left;position:relative}
+thead th .fl{position:absolute;right:4px;top:7px;font-size:8px;opacity:.85}
+tbody tr:nth-child(even) td{background:#f4f8fc}
+td.n{text-align:right;font-family:"Cascadia Mono",Consolas,monospace;font-size:10.8px}
+td.c{text-align:center}
+.rowhead{background:#f3f5f7;color:#6b7683;text-align:center;font-size:10px;width:38px;min-width:38px}
+td.sel{outline:2px solid #217346;outline-offset:-2px;background:#eef7f1!important}
+.tabbar{height:28px;display:flex;align-items:center;gap:2px;background:#f3f4f6;border-top:1px solid #dde3ea;padding:0 8px;font-size:11px;color:#4b5563}
+.tabbar .st{padding:3px 12px;border-radius:3px 3px 0 0;background:#fff;border:1px solid #dde3ea;border-bottom:none;font-weight:600;color:#217346}
+.tabbar .st2{padding:3px 12px;color:#6b7683}
+.status{height:24px;display:flex;align-items:center;gap:16px;background:#f3f4f6;border-top:1px solid #dde3ea;padding:0 12px;font-size:10.5px;color:#6b7683}
+.status .grow{flex:1}
+.badge{position:absolute;right:14px;top:8px;font-size:10px;color:#8a6d1f;background:#fdf3d8;border:1px solid #f0dfae;border-radius:9px;padding:2px 8px;z-index:5}
+</style></head><body>
+<div class="win">
+  <div class="tbar"><div class="qat">▣ ▤ ▥</div><span>监控数据_chrome.exe_20261118_193014.xlsx - Excel</span>
+    <div class="grow"></div><div class="wbtn">—</div><div class="wbtn">▢</div><div class="wbtn">✕</div></div>
+  <div class="tabs"><div class="t">文件</div><div class="t on">开始</div><div class="t">插入</div><div class="t">页面布局</div>
+    <div class="t">公式</div><div class="t">数据</div><div class="t">审阅</div><div class="t">视图</div><div class="t">帮助</div></div>
+  <div class="ribbon">
+    <div class="rgrp"><div class="rrow"><div class="rbtn sq">粘贴</div><div class="rbtn sq">剪切</div><div class="rbtn sq">复制</div></div>
+      <div class="lbl2">剪贴板</div></div>
+    <div class="rgrp"><div class="rrow"><div class="fontbox"><span>微软雅黑</span><span>▾</span></div>
+      <div class="fontbox" style="width:52px"><span>11</span><span>▾</span></div></div>
+      <div class="rrow"><div class="rbtn">B</div><div class="rbtn">I</div><div class="rbtn">U</div>
+        <div class="rbtn">A</div><div class="rbtn">🎨</div></div><div class="lbl2">字体</div></div>
+    <div class="rgrp"><div class="rrow"><div class="rbtn sq">≡</div><div class="rbtn sq">☰</div><div class="rbtn sq">⇥</div></div>
+      <div class="lbl2">对齐方式</div></div>
+    <div class="rgrp"><div class="rrow"><div class="fontbox" style="width:110px"><span>常规</span><span>▾</span></div>
+      <div class="rbtn">¥</div><div class="rbtn">%</div><div class="rbtn">,</div></div><div class="lbl2">数字</div></div>
+    <div class="rgrp"><div class="rrow"><div class="rbtn sq">条件格式</div><div class="rbtn sq">表格样式</div></div>
+      <div class="lbl2">样式</div></div>
+    <div class="rgrp"><div class="rrow"><div class="rbtn sq">插入</div><div class="rbtn sq">删除</div><div class="rbtn sq">格式</div></div>
+      <div class="lbl2">单元格</div></div>
+    <div class="rgrp"><div class="rrow"><div class="rbtn sq">Σ 自动求和</div><div class="rbtn sq">筛选</div></div>
+      <div class="lbl2">编辑</div></div>
+  </div>
+  <div class="fbar"><div class="namebox">D5</div><div class="fx">fx</div>
+    <div class="fcontent">3182</div></div>
+  <div class="sheet">
+    <div class="badge">原型稿 · 示例数据（前 16 行）</div>
+    <table><colgroup><col style="width:38px"><col style='width:46px'><col style='width:150px'><col style='width:88px'><col style='width:108px'><col style='width:96px'><col style='width:84px'><col style='width:104px'><col style='width:108px'><col style='width:94px'><col style='width:96px'><col style='width:98px'><col style='width:62px'><col style='width:66px'><col style='width:62px'><col style='width:130px'></colgroup>
+      <thead><tr><th class="rowhead" style="background:#1f4e79"></th><th style='width:46px;min-width:46px'>序号<span class='fl'>▾</span></th><th style='width:150px;min-width:150px'>采样时间<span class='fl'>▾</span></th><th style='width:88px;min-width:88px'>相对时间(s)<span class='fl'>▾</span></th><th style='width:108px;min-width:108px'>区间CPU时间(ms)<span class='fl'>▾</span></th><th style='width:96px;min-width:96px'>CPU占用率(%)<span class='fl'>▾</span></th><th style='width:84px;min-width:84px'>等效核数<span class='fl'>▾</span></th><th style='width:104px;min-width:104px'>累计CPU时间<span class='fl'>▾</span></th><th style='width:108px;min-width:108px'>私有工作集(MB)<span class='fl'>▾</span></th><th style='width:94px;min-width:94px'>工作集(MB)<span class='fl'>▾</span></th><th style='width:96px;min-width:96px'>提交大小(MB)<span class='fl'>▾</span></th><th style='width:98px;min-width:98px'>内存占用率(%)<span class='fl'>▾</span></th><th style='width:62px;min-width:62px'>线程数<span class='fl'>▾</span></th><th style='width:66px;min-width:66px'>句柄数<span class='fl'>▾</span></th><th style='width:62px;min-width:62px'>实例数<span class='fl'>▾</span></th><th style='width:130px;min-width:130px'>备注<span class='fl'>▾</span></th></tr></thead>
+      <tbody><tr><td class='rowhead'>2</td><td class='n'>1</td><td class='n'>2026-11-18 19:30:14</td><td class='n'>0</td><td class='n'>4865</td><td class='n'>15.20</td><td class='n'>2.43</td><td class='n'>0:00:04.9</td><td class='n'>381.9</td><td class='n'>504.0</td><td class='n'>553.7</td><td class='n'>2.33</td><td class='n'>86</td><td class='n'>1420</td><td class='c'>12</td><td class=''>启动预热</td></tr><tr><td class='rowhead'>3</td><td class='n'>2</td><td class='n'>2026-11-18 19:30:16</td><td class='n'>2</td><td class='n'>4900</td><td class='n'>15.31</td><td class='n'>2.45</td><td class='n'>0:00:09.8</td><td class='n'>378.9</td><td class='n'>500.1</td><td class='n'>549.4</td><td class='n'>2.31</td><td class='n'>87</td><td class='n'>1423</td><td class='c'>12</td><td class=''>启动预热</td></tr><tr><td class='rowhead'>4</td><td class='n'>3</td><td class='n'>2026-11-18 19:30:18</td><td class='n'>4</td><td class='n'>4533</td><td class='n'>14.16</td><td class='n'>2.27</td><td class='n'>0:00:14.3</td><td class='n'>380.8</td><td class='n'>502.6</td><td class='n'>552.1</td><td class='n'>2.32</td><td class='n'>88</td><td class='n'>1426</td><td class='c'>12</td><td class=''>启动预热</td></tr><tr><td class='rowhead'>5</td><td class='n'>4</td><td class='n'>2026-11-18 19:30:20</td><td class='n'>6</td><td class='n'>4346</td><td class='n'>13.58</td><td class='n'>2.17</td><td class='n'>0:00:18.6</td><td class='n'>380.3</td><td class='n'>501.9</td><td class='n'>551.4</td><td class='n'>2.32</td><td class='n'>89</td><td class='n'>1429</td><td class='c'>12</td><td class=''>—</td></tr><tr><td class='rowhead'>6</td><td class='n'>5</td><td class='n'>2026-11-18 19:30:22</td><td class='n'>8</td><td class='n sel'>4416</td><td class='n'>13.80</td><td class='n'>2.21</td><td class='n'>0:00:23.1</td><td class='n'>383.5</td><td class='n'>506.2</td><td class='n'>556.1</td><td class='n'>2.34</td><td class='n'>86</td><td class='n'>1432</td><td class='c'>12</td><td class=''>—</td></tr><tr><td class='rowhead'>7</td><td class='n'>6</td><td class='n'>2026-11-18 19:30:24</td><td class='n'>10</td><td class='n'>4857</td><td class='n'>15.18</td><td class='n'>2.43</td><td class='n'>0:00:27.9</td><td class='n'>383.9</td><td class='n'>506.7</td><td class='n'>556.6</td><td class='n'>2.34</td><td class='n'>87</td><td class='n'>1435</td><td class='c'>12</td><td class=''>—</td></tr><tr><td class='rowhead'>8</td><td class='n'>7</td><td class='n'>2026-11-18 19:30:26</td><td class='n'>12</td><td class='n'>14653</td><td class='n'>45.79</td><td class='n'>7.33</td><td class='n'>0:00:42.6</td><td class='n'>381.5</td><td class='n'>503.6</td><td class='n'>553.2</td><td class='n'>2.33</td><td class='n'>88</td><td class='n'>1438</td><td class='c'>12</td><td class=''>—</td></tr><tr><td class='rowhead'>9</td><td class='n'>8</td><td class='n'>2026-11-18 19:30:28</td><td class='n'>14</td><td class='n'>14666</td><td class='n'>45.83</td><td class='n'>7.33</td><td class='n'>0:00:57.2</td><td class='n'>384.0</td><td class='n'>506.9</td><td class='n'>556.8</td><td class='n'>2.34</td><td class='n'>89</td><td class='n'>1441</td><td class='c'>12</td><td class=''>—</td></tr><tr><td class='rowhead'>10</td><td class='n'>9</td><td class='n'>2026-11-18 19:30:30</td><td class='n'>16</td><td class='n'>14493</td><td class='n'>45.29</td><td class='n'>7.25</td><td class='n'>0:01:11.7</td><td class='n'>383.7</td><td class='n'>506.5</td><td class='n'>556.4</td><td class='n'>2.34</td><td class='n'>86</td><td class='n'>1444</td><td class='c'>12</td><td class=''>—</td></tr><tr><td class='rowhead'>11</td><td class='n'>10</td><td class='n'>2026-11-18 19:30:32</td><td class='n'>18</td><td class='n'>15052</td><td class='n'>47.04</td><td class='n'>7.53</td><td class='n'>0:01:26.8</td><td class='n'>385.5</td><td class='n'>508.8</td><td class='n'>559.0</td><td class='n'>2.35</td><td class='n'>87</td><td class='n'>1447</td><td class='c'>12</td><td class=''>—</td></tr><tr><td class='rowhead'>12</td><td class='n'>11</td><td class='n'>2026-11-18 19:30:34</td><td class='n'>20</td><td class='n'>14465</td><td class='n'>45.20</td><td class='n'>7.23</td><td class='n'>0:01:41.2</td><td class='n'>390.0</td><td class='n'>514.8</td><td class='n'>565.5</td><td class='n'>2.38</td><td class='n'>88</td><td class='n'>1450</td><td class='c'>12</td><td class=''>—</td></tr><tr><td class='rowhead'>13</td><td class='n'>12</td><td class='n'>2026-11-18 19:30:36</td><td class='n'>22</td><td class='n'>15464</td><td class='n'>48.33</td><td class='n'>7.73</td><td class='n'>0:01:56.7</td><td class='n'>394.2</td><td class='n'>520.3</td><td class='n'>571.6</td><td class='n'>2.41</td><td class='n'>89</td><td class='n'>1453</td><td class='c'>12</td><td class=''>—</td></tr><tr><td class='rowhead'>14</td><td class='n'>13</td><td class='n'>2026-11-18 19:30:38</td><td class='n'>24</td><td class='n'>14606</td><td class='n'>45.64</td><td class='n'>7.30</td><td class='n'>0:02:11.3</td><td class='n'>396.9</td><td class='n'>523.9</td><td class='n'>575.5</td><td class='n'>2.42</td><td class='n'>86</td><td class='n'>1456</td><td class='c'>12</td><td class=''>—</td></tr><tr><td class='rowhead'>15</td><td class='n'>14</td><td class='n'>2026-11-18 19:30:40</td><td class='n'>26</td><td class='n'>14593</td><td class='n'>45.60</td><td class='n'>7.30</td><td class='n'>0:02:25.9</td><td class='n'>400.8</td><td class='n'>529.0</td><td class='n'>581.1</td><td class='n'>2.45</td><td class='n'>87</td><td class='n'>1459</td><td class='c'>12</td><td class=''>—</td></tr><tr><td class='rowhead'>16</td><td class='n'>15</td><td class='n'>2026-11-18 19:30:42</td><td class='n'>28</td><td class='n'>5273</td><td class='n'>16.48</td><td class='n'>2.64</td><td class='n'>0:02:31.2</td><td class='n'>404.7</td><td class='n'>534.2</td><td class='n'>586.9</td><td class='n'>2.47</td><td class='n'>88</td><td class='n'>1462</td><td class='c'>12</td><td class=''>—</td></tr><tr><td class='rowhead'>17</td><td class='n'>16</td><td class='n'>2026-11-18 19:30:44</td><td class='n'>30</td><td class='n'>5735</td><td class='n'>17.92</td><td class='n'>2.87</td><td class='n'>0:02:36.9</td><td class='n'>408.9</td><td class='n'>539.8</td><td class='n'>593.0</td><td class='n'>2.50</td><td class='n'>89</td><td class='n'>1465</td><td class='c'>12</td><td class=''>—</td></tr><tr><td class='rowhead'>18</td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td></tr><tr><td class='rowhead'>19</td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td></tr><tr><td class='rowhead'>20</td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td></tr><tr><td class='rowhead'>21</td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td></tr><tr><td class='rowhead'>22</td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td></tr><tr><td class='rowhead'>23</td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td><td class=''></td></tr></tbody></table>
+  </div>
+  <div class="tabbar"><span class="st">01_原始数据</span><span class="st2">00_监控说明</span>
+    <span class="st2">02_统计汇总</span><span class="st2">03_判定结果</span><span class="st2">04_图表</span></div>
+  <div class="status"><span>就绪</span><span>计数：16 条记录（共 120 条）</span><span>平均值：18.6</span>
+    <div class="grow"></div><span>100%</span><span>⊞</span><span>—</span><span>＋</span></div>
+</div></body></html>

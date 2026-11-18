@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "target": "GDT.exe",
+    "by_name": true,
+    "pids": [
+      24204
+    ],
+    "started_at_text": "2026-11-18 23:15:18",
+    "finished_at_text": "2026-11-18 23:17:14",
+    "duration_s": 114.1,
+    "duration_text": "1 分 54 秒",
+    "interval": 2.0,
+    "sample_count": 58,
+    "cores": 8,
+    "total_phys_mb": 16167.3046875,
+    "mem_source": "sysinfo",
+    "mem_source_text": "工作集（旧系统回退，非任务管理器口径）",
+    "exited": false,
+    "exited_at_text": "",
+    "paused_count": 0,
+    "tool_version": "1.0.0",
+    "os": "Windows 11 Build 26200"
+  },
+  "thresholds": {
+    "cpu": {
+      "avg": 50.0,
+      "avg_fail": 70.0,
+      "p95": 70.0,
+      "p95_fail": 85.0,
+      "peak": 90.0,
+      "peak_fail": 95.0,
+      "sustained_threshold": 80.0,
+      "sustained_s": 30.0,
+      "sustained_fail_s": 120.0
+    },
+    "mem": {
+      "peak_percent": 80.0,
+      "peak_percent_fail": 90.0,
+      "growth_percent": 20.0
+    },
+    "release": {
+      "min_drop_mb": 50.0,
+      "min_drop_percent": 5.0,
+      "recover_band_percent": 15.0,
+      "window_s": 120.0,
+      "slope_mb_per_min": 3.0,
+      "leak_slope_mb_per_min": 5.0,
+      "min_samples": 30.0,
+      "sample_interval": 2.0
+    }
+  },
+  "analysis": {
+    "overall": "warn",
+    "cpu": {
+      "verdict": "pass",
+      "label": null,
+      "reasons": []
+    },
+    "mem": {
+      "verdict": "pass",
+      "label": null,
+      "reasons": []
+    },
+    "release": {
+      "verdict": "warn",
+      "label": "持续增长、未见释放",
+      "reasons": [
+        "无有效释放，斜率 13.43 MB/min 高于 3.0 MB/min"
+      ]
+    }
+  }
+}

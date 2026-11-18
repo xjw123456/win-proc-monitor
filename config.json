@@ -1,0 +1,34 @@
+{
+  "_说明": "阈值调整后重启工具生效；单位：百分比为 %，斜率 MB/min，时间秒。",
+  "sampling": {
+    "interval": 2
+  },
+  "thresholds": {
+    "cpu": {
+      "avg": 50,
+      "avg_fail": 70,
+      "p95": 70,
+      "p95_fail": 85,
+      "peak": 90,
+      "peak_fail": 95,
+      "sustained_threshold": 80,
+      "sustained_s": 30,
+      "sustained_fail_s": 120
+    },
+    "mem": {
+      "peak_percent": 80,
+      "peak_percent_fail": 90,
+      "growth_percent": 20
+    },
+    "release": {
+      "min_drop_mb": 50,
+      "min_drop_percent": 5,
+      "recover_band_percent": 15,
+      "window_s": 120,
+      "slope_mb_per_min": 3,
+      "leak_slope_mb_per_min": 5,
+      "min_samples": 30,
+      "sample_interval": 2
+    }
+  }
+}

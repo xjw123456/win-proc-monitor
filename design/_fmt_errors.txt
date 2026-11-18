@@ -1,0 +1,3 @@
+core/report_writer.py:495
+  '**CPU**：≥80% 累计 %s，最长连续 %s（红线 30 秒）%s。'
+  ValueError: unsupported format character '?' (0x7d2f) at index 13

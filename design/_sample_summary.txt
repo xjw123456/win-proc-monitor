@@ -1,0 +1,5 @@
+keys_cpu=['verdict', 'label', 'reasons']
+keys_mem=['verdict', 'label', 'reasons']
+keys_rel=['verdict', 'label', 'reasons']
+rows=70 cols=17 freeze=A4
+{"overall": "pass", "cpu": {"verdict": "pass", "label": null, "reasons": []}, "mem": {"verdict": "pass", "label": null, "reasons": []}, "release": {"verdict": "pass", "label": "内存稳定", "reasons": ["全程波动小于 5%，无明显释放压力"]}}
